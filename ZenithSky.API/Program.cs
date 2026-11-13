@@ -1,4 +1,7 @@
 using ZenithSky.API.Middleware;
+using ZenithSky.API.Middleware;
+using ZenithSky.Business;
+using ZenithSky.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -6,10 +9,10 @@ string connectionString = builder.Configuration.GetConnectionString("ZenithSky")
     ?? throw new InvalidOperationException("Falta ConnectionStrings:ZenithSky en appsettings.json");
 
 // ===================== Data =====================
-// Ejemplo: builder.Services.AddScoped(_ => new AirportData(connectionString));
+builder.Services.AddScoped(_ => new AirportData(connectionString));
 
 // ===================== Business =====================
-// Ejemplo: builder.Services.AddScoped<AirportBusiness>();
+builder.Services.AddScoped<AirportBusiness>();
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
