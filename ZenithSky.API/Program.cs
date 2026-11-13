@@ -12,9 +12,11 @@ string connectionString = builder.Configuration.GetConnectionString("ZenithSky")
 // Data 
 builder.Services.AddScoped(_ => new AirportData(connectionString));
 builder.Services.AddScoped(_ => new AirplaneTypeData(connectionString));
+builder.Services.AddScoped(_ => new AirplaneData(connectionString));
 // Business 
 builder.Services.AddScoped<AirportBusiness>();
 builder.Services.AddScoped<AirplaneTypeBusiness>();
+builder.Services.AddScoped<AirplaneBusiness>();
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
