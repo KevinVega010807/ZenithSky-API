@@ -1,0 +1,49 @@
+@host = http://localhost:5080
+
+### Tipos de avión
+GET {{host}}/api/airplane-types
+
+### Aviones (todos)
+GET {{host}}/api/airplanes
+
+### Aviones filtrados por tipo
+GET {{host}}/api/airplanes?typeId=1
+
+### Aviones filtrados por aerolínea
+GET {{host}}/api/airplanes?airlineId=1
+
+### Avión por id
+GET {{host}}/api/airplanes/1
+
+### Crear avión
+POST {{host}}/api/airplanes
+Content-Type: application/json
+
+{
+  "capacity": 186,
+  "typeId": 1,
+  "airlineId": 1
+}
+
+### Actualizar avión
+PUT {{host}}/api/airplanes/1
+Content-Type: application/json
+
+{
+  "capacity": 200,
+  "typeId": 1,
+  "airlineId": 1
+}
+
+### Capacidad inválida (400)
+POST {{host}}/api/airplanes
+Content-Type: application/json
+
+{
+  "capacity": 0,
+  "typeId": 1,
+  "airlineId": 1
+}
+
+### Eliminar avión
+DELETE {{host}}/api/airplanes/1
