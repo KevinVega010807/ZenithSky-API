@@ -1,8 +1,6 @@
 using ZenithSky.API.Middleware;
-using ZenithSky.API.Middleware;
 using ZenithSky.Business;
 using ZenithSky.Data;
-
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,10 +11,13 @@ string connectionString = builder.Configuration.GetConnectionString("ZenithSky")
 builder.Services.AddScoped(_ => new AirportData(connectionString));
 builder.Services.AddScoped(_ => new AirplaneTypeData(connectionString));
 builder.Services.AddScoped(_ => new AirplaneData(connectionString));
+builder.Services.AddScoped(_ => new AirlineData(connectionString));
+
 // Business 
 builder.Services.AddScoped<AirportBusiness>();
 builder.Services.AddScoped<AirplaneTypeBusiness>();
 builder.Services.AddScoped<AirplaneBusiness>();
+builder.Services.AddScoped<AirlineBusiness>();
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
