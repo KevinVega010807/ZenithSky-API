@@ -4,6 +4,6 @@ namespace ZenithSky.API.DTOs
     {
         public string? Iata { get; set; }
         public string? AirlineName { get; set; }
-        public int BaseAirportId { get; set; }
+        public int BaseAirport { get; set; }
     }
 }
