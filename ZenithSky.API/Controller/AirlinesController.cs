@@ -61,7 +61,7 @@ namespace ZenithSky.API.Controllers
                 AirlineId = id,
                 Iata = request.Iata ?? string.Empty,
                 AirlineName = request.AirlineName ?? string.Empty,
-                BaseAirport = new Airport { AirportId = request.BaseAirportId }
+                BaseAirport = new Airport { AirportId = request.BaseAirport }
             };
         }
     }
